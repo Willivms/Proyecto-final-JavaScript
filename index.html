@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Portfolio | CapacitarTec</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="encabezado">
+    <div class="contenedor barra-superior">
+      <div>
+        <h1>Williams Miño</h1>
+        <p class="subtitulo">Desarrollador Web · Rafaela, Santa Fe</p>
+      </div>
+
+      <div class="acciones-header">
+        <div id="clima-rafaela" class="badge-clima cargando">
+          Cargando clima...
+        </div>
+        <button id="btn-tema" class="btn-secundario" type="button">
+          🌙 Modo oscuro
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="contenedor">
+
+    <section class="bloque">
+      <h2>Sobre mí</h2>
+      <p>
+        Estudiante de programación web en <strong>Compu Trabajo</strong>. Me apasiona construir
+        interfaces claras, funcionales y conectadas con datos reales usando HTML, CSS y JavaScript.
+      </p>
+    </section>
+
+
+    <section class="bloque">
+      <div class="cabecera-seccion">
+        <h2>Mis Proyectos</h2>
+
+        <div class="controles-proyectos">
+          <input
+            type="search"
+            id="buscador"
+            placeholder="Buscar proyecto..."
+            aria-label="Buscar proyecto"
+          />
+
+          <div id="filtros" class="filtros">
+            <button class="chip activo" data-categoria="todos" type="button">Todos</button>
+            <button class="chip" data-categoria="HTML/CSS" type="button">HTML / CSS</button>
+            <button class="chip" data-categoria="JavaScript" type="button">JavaScript</button>
+            <button class="chip" data-categoria="APIs" type="button">APIs</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- se completa dinámicamente con script.js -->
+      <div id="grilla-proyectos" class="grilla-proyectos"></div>
+      <p id="sin-resultados" class="mensaje-vacio oculto">
+        No se encontraron proyectos con ese filtro o búsqueda.
+      </p>
+    </section>
+
+    <section class="bloque">
+      <h2>Contacto</h2>
+      <p class="descripcion-form">
+        ¿Tenés una propuesta o consulta? Escribime. Tu borrador se guarda automáticamente mientras escribís.
+      </p>
+
+      <form id="form-contacto" novalidate>
+        <div class="campo">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej: Ana García" />
+          <p id="error-nombre" class="error-texto"></p>
+        </div>
+
+        <div class="campo">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="ana@ejemplo.com" />
+          <p id="error-email" class="error-texto"></p>
+        </div>
+
+        <div class="campo">
+          <label for="mensaje">Mensaje</label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            rows="4"
+            placeholder="Contame sobre tu proyecto o consulta..."
+          ></textarea>
+          <p id="error-mensaje" class="error-texto"></p>
+        </div>
+
+        <div class="botones-form">
+          <button type="submit" class="btn-primario">Enviar mensaje</button>
+          <button type="button" id="btn-limpiar-borrador" class="btn-secundario">
+            Limpiar borrador
+          </button>
+        </div>
+      </form>
+
+      <div id="mensaje-exito" class="alerta-exito oculto"></div>
+    </section>
+  </main>
+
+  <div id="velo" class="velo oculto"></div>
+  <dialog id="modal-proyecto" class="modal">
+    <div class="modal-contenido">
+      <button id="cerrar-modal" class="btn-cerrar" type="button" aria-label="Cerrar">✕</button>
+      <span id="modal-categoria" class="etiqueta"></span>
+      <h3 id="modal-titulo"></h3>
+      <p id="modal-descripcion"></p>
+      <p><strong>Tecnologías:</strong> <span id="modal-tecnologias"></span></p>
+      <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-primario">
+        Ver repositorio / demo →
+      </a>
+    </div>
+  </dialog>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p>Proyecto Final · Curso de JavaScript  · Rafaela 2026</p>
+    </div>
+  </footer>
+</body>
+</html>
